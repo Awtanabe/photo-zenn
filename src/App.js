@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { fetchImages } from "./api"
+
 function Loading() {
   return <p>Loading...</p>
 }
@@ -60,6 +63,11 @@ function Main() {
       "https://images.dog.ceo/breeds/shiba/shiba-8.jpg",
       "https://images.dog.ceo/breeds/shiba/shiba-9.jpg",
     ];
+  useEffect(() => {
+    fetchImages("shiba").then((urls) => {
+      console.log(urls)
+    },[])
+  })
   return (
     <main>
       <section className="section">
